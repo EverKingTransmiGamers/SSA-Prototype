@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cofibd8sxb874"]
+
+[sub_resource type="GDScript" id="GDScript_idfin"]
+script/source = "class_name Editor_BuildArea_Chunk extends Node2D
+"
+
+[node name="Editor_BuildArea_Chunk" type="Area2D"]
+script = SubResource("GDScript_idfin")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 400, 0, 400, 400, 0, 400)
