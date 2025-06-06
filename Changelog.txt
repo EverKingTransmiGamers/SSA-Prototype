@@ -1,18 +1,21 @@
-Version: alp-1.1: 
+Versión: alp-1.2:
 
-Note: I'm a rookie in english language, sorry for a bad ortography, I'm learning it in Duolingo XD.
+Note: I'm a newbie in english language, sorry for any bad ortography, I'm learning it in Duolingo XD.
 
 Español:
 
--  Agregado Nuevo personaje sin animar (Me falta ponerle las animaciones).
--  Agregada Nueva Mecanica, el dashing (presiona la tecla "d" para realizarla, se puede hacer tanto en el suelo como en el aire).
--  Agregado Nuevo Menú de inicio, y de muerte.
--  Hay un bug con el dashing, se puede spamear y mantener volando, pronto lo arreglo.
-
-
+-  Animaciones básicas añadidas al personaje.
+-  Agregado nuevo Modo Editor, pero está sin terminar y en mal funcionamiento.
+-  Ligeramente cambiado algunos temas de los botones y algunos textos.
+-  Ahora solo se puede hacer el Dashing, si el personaje está saltando.
+-  El mundo principal de pruebas ha sido expandido un poco.
+-  El código del personaje ha cambiado, y ahora, se ha agregado una máquina de estados reutilizable al mismo personaje.
+- - - - - -
 English:
 
--  Added new Character without animations (I need to add animations it).
--  Added new mechanic, acceleration (press the "d" key to use it, you can do it on the floor and the air).
--  Added new Principal menu, and Death menu.
--  There is a bug with acceleration, you can spam the key and the character keep on the air, I need fix this bug soon.
+-  Added basic animations to the character.
+-  Added new Editor Mode, but it's without finishing and it's working bad.
+-  Changed slightly some buttons themes and some texts.
+-  Now, u can only do dashing, if the character is jumping.
+-  The main world for tests has been expanded slightly.
+-  The character's script has changed, and now, a reusable state machine has been added to the same character.
