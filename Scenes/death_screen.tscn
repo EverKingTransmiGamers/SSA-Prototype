@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcad738foydgk"]
+[gd_scene format=3 uid="uid://dcad738foydgk"]
 
 [ext_resource type="Script" uid="uid://cj0woa6yxnjd5" path="res://Assets/PGT-RW/Scripts/death_screen.gd" id="1_3w4gx"]
 [ext_resource type="FontFile" uid="uid://ciwu3s42wycke" path="res://Assets/PGT-RW/Montserrat-Bold.ttf" id="1_abpgt"]
@@ -11,7 +11,7 @@ default_font_size = 48
 default_font = ExtResource("1_abpgt")
 default_font_size = 24
 
-[node name="Death_screen" type="Control"]
+[node name="Death_screen" type="Control" unique_id=1803057493]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3w4gx")
 
-[node name="death_txt_cont" type="Control" parent="."]
+[node name="death_txt_cont" type="Control" parent="." unique_id=1061873335]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -31,7 +31,7 @@ offset_bottom = 100.0
 grow_horizontal = 2
 metadata/_edit_group_ = true
 
-[node name="death_text" type="RichTextLabel" parent="death_txt_cont"]
+[node name="death_text" type="RichTextLabel" parent="death_txt_cont" unique_id=194773377]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -48,7 +48,7 @@ theme = SubResource("Theme_n3q0i")
 text = "Has Muerto"
 horizontal_alignment = 1
 
-[node name="buttons_cont" type="Control" parent="."]
+[node name="buttons_cont" type="Control" parent="." unique_id=1258195607]
 anchors_preset = 0
 offset_left = 478.0
 offset_top = 260.0
@@ -56,7 +56,7 @@ offset_right = 578.0
 offset_bottom = 360.0
 metadata/_edit_group_ = true
 
-[node name="retry_button" type="Button" parent="buttons_cont"]
+[node name="retry_button" type="Button" parent="buttons_cont" unique_id=1091054484]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -72,7 +72,7 @@ grow_vertical = 2
 theme = SubResource("Theme_1d1th")
 text = "Reintentar"
 
-[node name="back_button" type="Button" parent="buttons_cont"]
+[node name="back_button" type="Button" parent="buttons_cont" unique_id=1045069934]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

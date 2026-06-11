@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba114kohu7slf"]
+[gd_scene format=3 uid="uid://ba114kohu7slf"]
 
 [ext_resource type="Script" uid="uid://ckwxv0ggr0c51" path="res://Assets/PGT-RW/Scripts/editor_proto.gd" id="1_7cb8f"]
 [ext_resource type="PackedScene" uid="uid://bv37qu0mcwvdg" path="res://Scenes/Editor_Components/editor_camera.tscn" id="2_7x6cs"]
@@ -8,34 +8,34 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7t6a"]
 size = Vector2(800, 32)
 
-[node name="Editor_proto" type="Node2D"]
+[node name="Editor_proto" type="Node2D" unique_id=1048920134]
 script = ExtResource("1_7cb8f")
 
-[node name="Editor_Camera" parent="." instance=ExtResource("2_7x6cs")]
+[node name="Editor_Camera" parent="." unique_id=2135994513 instance=ExtResource("2_7x6cs")]
 z_index = 2
 position = Vector2(482, 301)
 
-[node name="Player_Spawn" type="Marker2D" parent="."]
+[node name="Player_Spawn" type="Marker2D" parent="." unique_id=1657657642]
 position = Vector2(194, 350)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2065817053]
 z_index = -2
 position = Vector2(194, 457)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1176200920]
 shape = SubResource("RectangleShape2D_s7t6a")
 
-[node name="Platform_Line" type="Line2D" parent="StaticBody2D"]
+[node name="Platform_Line" type="Line2D" parent="StaticBody2D" unique_id=953438898]
 points = PackedVector2Array(-396, -11, 396, -11, 396, 11, -396, 11)
 closed = true
 default_color = Color(0.224304, 0.224304, 0.224304, 1)
 
-[node name="Logic_Canvas" type="Node2D" parent="."]
+[node name="Logic_Canvas" type="Node2D" parent="." unique_id=1550295195]
 script = ExtResource("3_q5rip")
 
-[node name="Object_Layer" type="Node2D" parent="."]
+[node name="Object_Layer" type="Node2D" parent="." unique_id=1882241423]
 
-[node name="Canvas1K" type="Node2D" parent="."]
+[node name="Canvas1K" type="Node2D" parent="." unique_id=115065965]
 z_index = -1
 script = ExtResource("3_7x6cs")

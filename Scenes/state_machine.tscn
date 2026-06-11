@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0qr76t0prpb4"]
+[gd_scene format=3 uid="uid://b0qr76t0prpb4"]
 
 [ext_resource type="Script" uid="uid://c3x2v1vdfgxju" path="res://Assets/PGT-RW/Scripts/Finite State Machine/StateMachine.gd" id="1_uvuqw"]
 
-[node name="StateMachine" type="Node"]
+[node name="StateMachine" type="Node" unique_id=1211582638]
 script = ExtResource("1_uvuqw")

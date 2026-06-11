@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv37qu0mcwvdg"]
+[gd_scene format=3 uid="uid://bv37qu0mcwvdg"]
 
 [ext_resource type="FontFile" uid="uid://ciwu3s42wycke" path="res://Assets/PGT-RW/Montserrat-Bold.ttf" id="1_4eros"]
 [ext_resource type="Script" uid="uid://8848halyj1gq" path="res://Assets/PGT-RW/Scripts/editor_camera.gd" id="1_jxqeh"]
@@ -32,10 +32,10 @@ RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 0)
 RichTextLabel/constants/outline_size = 8
 
-[node name="Editor_Camera" type="Camera2D"]
+[node name="Editor_Camera" type="Camera2D" unique_id=26945865]
 script = ExtResource("1_jxqeh")
 
-[node name="GUI" type="Control" parent="."]
+[node name="GUI" type="Control" parent="." unique_id=378776389]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -528.0
@@ -43,7 +43,7 @@ offset_top = -297.0
 offset_right = 528.0
 offset_bottom = 297.0
 
-[node name="Title" type="RichTextLabel" parent="GUI"]
+[node name="Title" type="RichTextLabel" parent="GUI" unique_id=293864795]
 layout_mode = 0
 offset_left = 453.0
 offset_top = 2.0
@@ -53,7 +53,7 @@ theme = SubResource("Theme_xpyhv")
 text = "Modo Edición"
 horizontal_alignment = 1
 
-[node name="WIP text" type="RichTextLabel" parent="GUI"]
+[node name="WIP text" type="RichTextLabel" parent="GUI" unique_id=1383291678]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -70,7 +70,7 @@ theme = SubResource("Theme_i2ric")
 text = "Work In Progress."
 horizontal_alignment = 1
 
-[node name="Exit_Btn" type="Button" parent="GUI"]
+[node name="Exit_Btn" type="Button" parent="GUI" unique_id=208338805]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 524.0
@@ -79,26 +79,26 @@ offset_bottom = 584.0
 theme = SubResource("Theme_jxqeh")
 text = "Exit to Main Menu"
 
-[node name="ObjectsMenu" type="Control" parent="GUI"]
+[node name="ObjectsMenu" type="Control" parent="GUI" unique_id=728517321]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Block1K_Btn" type="Button" parent="GUI/ObjectsMenu"]
+[node name="Block1K_Btn" type="Button" parent="GUI/ObjectsMenu" unique_id=1788379777]
 layout_mode = 0
 offset_left = 860.0
 offset_top = 490.0
 offset_right = 900.0
 offset_bottom = 530.0
 
-[node name="Block2K_Btn" type="Button" parent="GUI/ObjectsMenu"]
+[node name="Block2K_Btn" type="Button" parent="GUI/ObjectsMenu" unique_id=1289383777]
 layout_mode = 0
 offset_left = 900.0
 offset_top = 490.0
 offset_right = 940.0
 offset_bottom = 530.0
 
-[node name="Key_Notice_Container" type="Control" parent="GUI"]
+[node name="Key_Notice_Container" type="Control" parent="GUI" unique_id=2096781336]
 layout_mode = 1
 anchor_left = 0.800189
 anchor_top = 0.961279
@@ -108,7 +108,7 @@ grow_horizontal = 0
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="Key_Notice" type="RichTextLabel" parent="GUI/Key_Notice_Container"]
+[node name="Key_Notice" type="RichTextLabel" parent="GUI/Key_Notice_Container" unique_id=348739933]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

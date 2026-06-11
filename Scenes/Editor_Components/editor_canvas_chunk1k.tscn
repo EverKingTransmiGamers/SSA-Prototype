@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj2ajn43vblb4"]
+[gd_scene format=3 uid="uid://cj2ajn43vblb4"]
 
 [ext_resource type="Script" uid="uid://dc6ndwxrbrvgm" path="res://Assets/PGT-RW/Scripts/canvas_chunk1k.gd" id="1_bstqt"]
 
-[node name="Canvas_Chunk1K" type="Node2D"]
+[node name="Canvas_Chunk1K" type="Node2D" unique_id=358835474]
 script = ExtResource("1_bstqt")

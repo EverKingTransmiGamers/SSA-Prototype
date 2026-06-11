@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://t000wf51eoaw"]
+[gd_scene format=3 uid="uid://t000wf51eoaw"]
 
 [ext_resource type="Script" uid="uid://clqj828b1s6j6" path="res://Assets/PGT-RW/Scripts/Player.gd" id="1_pu2lt"]
 [ext_resource type="PackedScene" uid="uid://b0qr76t0prpb4" path="res://Scenes/state_machine.tscn" id="3_6t5aa"]
@@ -230,90 +230,88 @@ size = Vector2(26, 132)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwoeg"]
 size = Vector2(26, 132)
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=151456323 groups=["Player"]]
 z_index = 1
 collision_mask = 14
 script = ExtResource("1_pu2lt")
 
-[node name="Sprite_Animations" type="Node2D" parent="."]
+[node name="Sprite_Animations" type="Node2D" parent="." unique_id=1153015464]
 
-[node name="SS_Anim_Idle" type="Sprite2D" parent="Sprite_Animations"]
+[node name="SS_Anim_Idle" type="Sprite2D" parent="Sprite_Animations" unique_id=458870666]
 texture = ExtResource("8_f1ek2")
 hframes = 18
 vframes = 5
 
-[node name="SS_Anim_Running" type="Sprite2D" parent="Sprite_Animations"]
+[node name="SS_Anim_Running" type="Sprite2D" parent="Sprite_Animations" unique_id=907393830]
 visible = false
 texture = ExtResource("3_f1ek2")
 hframes = 6
 vframes = 2
 
-[node name="SS_Anim_Jumping" type="Sprite2D" parent="Sprite_Animations"]
+[node name="SS_Anim_Jumping" type="Sprite2D" parent="Sprite_Animations" unique_id=2069630586]
 visible = false
 texture = ExtResource("4_tx1dd")
 hframes = 4
 
-[node name="SS_Anim_Falling" type="Sprite2D" parent="Sprite_Animations"]
+[node name="SS_Anim_Falling" type="Sprite2D" parent="Sprite_Animations" unique_id=564565979]
 visible = false
 texture = ExtResource("5_gymyn")
 hframes = 4
 
-[node name="SS_Anim_Pre-Fall" type="Sprite2D" parent="Sprite_Animations"]
+[node name="SS_Anim_Pre-Fall" type="Sprite2D" parent="Sprite_Animations" unique_id=1303057257]
 visible = false
 texture = ExtResource("6_pu2lt")
 hframes = 11
 
-[node name="Player_Anims" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_tx1dd")
-}
+[node name="Player_Anims" type="AnimationPlayer" parent="." unique_id=297913427]
+libraries/ = SubResource("AnimationLibrary_tx1dd")
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1212621598]
 tree_root = SubResource("AnimationNodeStateMachine_7dp3o")
 anim_player = NodePath("../Player_Anims")
 
-[node name="Death_col" type="Area2D" parent="." groups=["Player"]]
+[node name="Death_col" type="Area2D" parent="." unique_id=1736931231 groups=["Player"]]
 collision_mask = 4
 
-[node name="ColArea" type="CollisionShape2D" parent="Death_col"]
+[node name="ColArea" type="CollisionShape2D" parent="Death_col" unique_id=1122954911]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_f1ek2")
 debug_color = Color(1, 0.375037, 0.303057, 0.419608)
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1924283927]
 position = Vector2(0, -36)
 target_position = Vector2(50, 0)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=229569751]
 zoom = Vector2(1.1, 1.1)
 drag_vertical_enabled = true
 drag_top_margin = 0.4
 drag_bottom_margin = 0.4
 
-[node name="Dashing_timer" type="Timer" parent="."]
+[node name="Dashing_timer" type="Timer" parent="." unique_id=78475324]
 wait_time = 0.5
 
-[node name="Col2D" type="CollisionShape2D" parent="."]
+[node name="Col2D" type="CollisionShape2D" parent="." unique_id=1893770413]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_dwoeg")
 debug_color = Color(0, 0.65, 1, 0.419608)
 
-[node name="StateMachine" parent="." node_paths=PackedStringArray("default_state") instance=ExtResource("3_6t5aa")]
+[node name="StateMachine" parent="." unique_id=1895405497 node_paths=PackedStringArray("default_state") instance=ExtResource("3_6t5aa")]
 default_state = NodePath("PlayerStateIdle")
 
-[node name="PlayerStateIdle" type="Node" parent="StateMachine"]
+[node name="PlayerStateIdle" type="Node" parent="StateMachine" unique_id=305107852]
 script = ExtResource("4_vgqql")
 
-[node name="PlayerStateRunning" type="Node" parent="StateMachine"]
+[node name="PlayerStateRunning" type="Node" parent="StateMachine" unique_id=548722575]
 script = ExtResource("5_fkybt")
 
-[node name="PlayerStateJumping" type="Node" parent="StateMachine"]
+[node name="PlayerStateJumping" type="Node" parent="StateMachine" unique_id=2109243039]
 script = ExtResource("6_x3wgy")
 
-[node name="PlayerStateFalling" type="Node" parent="StateMachine"]
+[node name="PlayerStateFalling" type="Node" parent="StateMachine" unique_id=222405689]
 script = ExtResource("7_3smsa")
 
-[node name="PlayerStateDashing" type="Node" parent="StateMachine"]
+[node name="PlayerStateDashing" type="Node" parent="StateMachine" unique_id=409422590]
 script = ExtResource("8_8erm5")
 
 [connection signal="animation_player_changed" from="AnimationTree" to="StateMachine/PlayerStateFalling" method="_on_animation_tree_animation_player_changed"]

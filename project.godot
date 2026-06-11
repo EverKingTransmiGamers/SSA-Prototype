@@ -10,12 +10,12 @@ config_version=5
 
 [application]
 
-config/name="StickSpyMan Adventures-Dev"
+config/name="StickSpyMan Adventures"
 config/description="Development Version of my Platform and Building Game"
 config/version="Alpha 1.1"
-config/tags=PackedStringArray("prototype")
+config/tags=PackedStringArray("4.6.3", "prototype")
 run/main_scene="res://Scenes/menu_inicio.tscn"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://draa1i8snn4tc"
 
 [autoload]

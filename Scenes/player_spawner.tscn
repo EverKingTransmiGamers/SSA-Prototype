@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dc67hmui28ogo"]
+[gd_scene format=3 uid="uid://dc67hmui28ogo"]
 
 [ext_resource type="Script" uid="uid://bpvall2iqk7or" path="res://Assets/PGT-RW/Scripts/player_spawner.gd" id="1_qn1mc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w407h"]
 size = Vector2(26, 132)
 
-[node name="Player_Spawner" type="Node2D"]
+[node name="Player_Spawner" type="Node2D" unique_id=939595453]
 script = ExtResource("1_qn1mc")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1477395775]
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2021396410]
 shape = SubResource("RectangleShape2D_w407h")
 debug_color = Color(5.53504e-07, 0.650554, 0.0848189, 0.42)
