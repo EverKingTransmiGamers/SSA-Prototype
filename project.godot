@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="StickSpyMan Adventures-Dev"
+config/name="StickSpyMan Adventures"
 config/description="Development Version of my Platform and Building Game"
 config/version="Alpha 1.2.5"
 config/tags=PackedStringArray("4.6.3", "prototype")
