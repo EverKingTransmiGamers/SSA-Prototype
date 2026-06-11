@@ -1,0 +1,99 @@
+[gd_scene format=4 uid="uid://ceth5grgqfn2i"]
+
+[ext_resource type="FontFile" uid="uid://ciwu3s42wycke" path="res://Assets/PGT-RW/Montserrat-Bold.ttf" id="1_6vtft"]
+[ext_resource type="Script" uid="uid://dxwu841s522i5" path="res://Scripts/Main_Components/test_level_class.gd" id="1_oif2o"]
+[ext_resource type="Texture2D" uid="uid://bhwb3tu8vj8kj" path="res://Assets/PGT-RW/Textures/Terrain/Piso_Placeholder_x56.svg" id="3_lyboa"]
+[ext_resource type="Texture2D" uid="uid://bqx8amqvuceed" path="res://Assets/PGT-RW/Textures/Terrain/Muro_Placeholder_x56.svg" id="4_lyboa"]
+[ext_resource type="PackedScene" uid="uid://cqt761ukrp0gq" path="res://Scenes/pincho1k.tscn" id="5_5b2a6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dpyes"]
+texture = ExtResource("3_lyboa")
+texture_region_size = Vector2i(56, 56)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28, -28, 28, -28, 28, 28, -28, 28)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
+
+[sub_resource type="TileSet" id="TileSet_wqakh"]
+tile_size = Vector2i(56, 56)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Floor_Trrn"
+terrain_set_0/terrain_0/color = Color(0.162592, 0.736256, 0.964744, 1)
+sources/1 = SubResource("TileSetAtlasSource_dpyes")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_141ng"]
+texture = ExtResource("4_lyboa")
+texture_region_size = Vector2i(56, 56)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28, -28, 28, -28, 28, 28, -28, 28)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
+
+[sub_resource type="TileSet" id="TileSet_d26ee"]
+tile_size = Vector2i(56, 56)
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Wall_Trrn"
+terrain_set_0/terrain_0/color = Color(0.162592, 0.736256, 0.964744, 1)
+sources/2 = SubResource("TileSetAtlasSource_141ng")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0qnlt"]
+scenes/1/scene = ExtResource("5_5b2a6")
+
+[sub_resource type="TileSet" id="TileSet_nxrp8"]
+tile_size = Vector2i(56, 56)
+sources/2 = SubResource("TileSetScenesCollectionSource_0qnlt")
+
+[sub_resource type="Theme" id="Theme_qxsm7"]
+default_font = ExtResource("1_6vtft")
+default_font_size = 20
+Label/colors/font_color = Color(0.33654, 0.79, 0.1264, 1)
+
+[node name="Test_world1" type="Node2D" unique_id=1175915217 groups=["Level"]]
+script = ExtResource("1_oif2o")
+currentLvlState = 1
+levelSceneNameID = "test_world1"
+
+[node name="Cubo1K_TMLayer" type="TileMapLayer" parent="." unique_id=1164729749]
+tile_map_data = PackedByteArray("AAACAAcAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAcAAQAAAAAAAAAGAAcAAQAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAQAAAAAAAAAJAAcAAQAAAAAAAAAKAAcAAQAAAAAAAAAAAAcAAQAAAAAAAAABAAcAAQAAAAAAAABQAAsAAQAAAAAAAABPAAsAAQAAAAAAAABOAAsAAQAAAAAAAABNAAsAAQAAAAAAAABMAAsAAQAAAAAAAABLAAsAAQAAAAAAAAALAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAANAAcAAQAAAAAAAAAOAAcAAQAAAAAAAAAOAAgAAQAAAAAAAAAPAAgAAQAAAAAAAAAQAAgAAQAAAAAAAAARAAgAAQAAAAAAAAARAAkAAQAAAAAAAAASAAkAAQAAAAAAAAATAAkAAQAAAAAAAAAUAAkAAQAAAAAAAAAUAAoAAQAAAAAAAAAVAAoAAQAAAAAAAAAWAAoAAQAAAAAAAAAXAAoAAQAAAAAAAAAXAAsAAQAAAAAAAAAYAAsAAQAAAAAAAAAZAAsAAQAAAAAAAAAaAAsAAQAAAAAAAAAaAAwAAQAAAAAAAAAbAAwAAQAAAAAAAAAcAAwAAQAAAAAAAAAdAAwAAQAAAAAAAAAeAAwAAQAAAAAAAAAfAAwAAQAAAAAAAAAgAAwAAQAAAAAAAAAhAAwAAQAAAAAAAAAiAAwAAQAAAAAAAAAjAAwAAQAAAAAAAAAkAAwAAQAAAAAAAAAlAAwAAQAAAAAAAAAmAAwAAQAAAAAAAAAnAAwAAQAAAAAAAAAoAAwAAQAAAAAAAAApAAwAAQAAAAAAAAAqAAwAAQAAAAAAAAAsAAkAAQAAAAAAAAAvAAgAAQAAAAAAAAAyAAcAAQAAAAAAAAA1AAYAAQAAAAAAAAA4AAUAAQAAAAAAAAA5AAUAAQAAAAAAAAA6AAUAAQAAAAAAAAA7AAUAAQAAAAAAAAA8AAUAAQAAAAAAAAA9AAUAAQAAAAAAAAA+AAUAAQAAAAAAAAA/AAUAAQAAAAAAAABAAAUAAQAAAAAAAABBAAUAAQAAAAAAAABCAAUAAQAAAAAAAABDAAUAAQAAAAAAAABEAAUAAQAAAAAAAABFAAUAAQAAAAAAAABGAAUAAQAAAAAAAABHAAgAAQAAAAAAAABIAAgAAQAAAAAAAABJAAsAAQAAAAAAAABKAAsAAQAAAAAAAABRAAwAAQAAAAAAAABSAAwAAQAAAAAAAABTAAwAAQAAAAAAAABUAAwAAQAAAAAAAABVAAwAAQAAAAAAAABWAAwAAQAAAAAAAABXAAwAAQAAAAAAAAArAAwAAQAAAAAAAAAsAAwAAQAAAAAAAAAtAAwAAQAAAAAAAAAuAAwAAQAAAAAAAAAvAAwAAQAAAAAAAAAwAAwAAQAAAAAAAAAxAAwAAQAAAAAAAAAyAAwAAQAAAAAAAAAzAAwAAQAAAAAAAAA0AAwAAQAAAAAAAAA1AAwAAQAAAAAAAAA2AAwAAQAAAAAAAAA3AAwAAQAAAAAAAAA4AAwAAQAAAAAAAAD//wcAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_wqakh")
+
+[node name="Cubo2K_TMLayer" type="TileMapLayer" parent="." unique_id=600905660]
+tile_map_data = PackedByteArray("AAD//wYAAgAAAAAAAAD//wUAAgAAAAAAAAD//wQAAgAAAAAAAAD//wMAAgAAAAAAAAD//wIAAgAAAAAAAAD//wEAAgAAAAAAAAD//wAAAgAAAAAAAAD/////AgAAAAAAAAD///7/AgAAAAAAAAD///3/AgAAAAAAAAD///z/AgAAAAAAAAD///v/AgAAAAAAAAAsAAsAAgAAAAAAAAAsAAoAAgAAAAAAAAAvAAsAAgAAAAAAAAAvAAoAAgAAAAAAAAAvAAkAAgAAAAAAAAAyAAsAAgAAAAAAAAAyAAoAAgAAAAAAAAAyAAkAAgAAAAAAAAAyAAgAAgAAAAAAAAA1AAsAAgAAAAAAAAA1AAoAAgAAAAAAAAA1AAkAAgAAAAAAAAA1AAgAAgAAAAAAAAA1AAcAAgAAAAAAAAA4AAsAAgAAAAAAAAA4AAoAAgAAAAAAAAA4AAkAAgAAAAAAAAA4AAgAAgAAAAAAAAA4AAcAAgAAAAAAAAA4AAYAAgAAAAAAAABGAAgAAgAAAAAAAABGAAcAAgAAAAAAAABGAAYAAgAAAAAAAABIAAsAAgAAAAAAAABIAAoAAgAAAAAAAABIAAkAAgAAAAAAAABQAAwAAgAAAAAAAABYAAAAAgAAAAAAAABYAAEAAgAAAAAAAABYAAIAAgAAAAAAAABYAAMAAgAAAAAAAABYAAQAAgAAAAAAAABYAAUAAgAAAAAAAABYAAYAAgAAAAAAAABYAAcAAgAAAAAAAABYAAgAAgAAAAAAAABYAAkAAgAAAAAAAABYAAoAAgAAAAAAAABYAAsAAgAAAAAAAABYAAwAAgAAAAAAAABYAP//AgAAAAAAAABYAP7/AgAAAAAAAABYAP3/AgAAAAAAAABYAPz/AgAAAAAAAABYAPv/AgAAAAAAAABYAPr/AgAAAAAAAABYAPn/AgAAAAAAAABYAPj/AgAAAAAAAAD///r/AgAAAAAAAAD///n/AgAAAAAAAAD///j/AgAAAAAAAAA=")
+tile_set = SubResource("TileSet_d26ee")
+
+[node name="Pincho1K_TMLayer" type="TileMapLayer" parent="." unique_id=939312328]
+tile_map_data = PackedByteArray("AAAtAAsAAgAAAAAAAQAuAAsAAgAAAAAAAQAwAAsAAgAAAAAAAQAxAAsAAgAAAAAAAQAzAAsAAgAAAAAAAQA0AAsAAgAAAAAAAQA2AAsAAgAAAAAAAQA3AAsAAgAAAAAAAQAqAAsAAgAAAAAAAQArAAsAAgAAAAAAAQA=")
+tile_set = SubResource("TileSet_nxrp8")
+
+[node name="Label1" type="Label" parent="." unique_id=651538728]
+offset_left = 4731.0
+offset_top = 435.0
+offset_right = 4890.0
+offset_bottom = 490.0
+theme = SubResource("Theme_qxsm7")
+text = "Llegaste al final
+Yay 😐️😐️"
+
+[node name="PlayerSpawnerPosRef" type="Marker2D" parent="." unique_id=329326647]
+position = Vector2(202, 243)
+gizmo_extents = 50.0

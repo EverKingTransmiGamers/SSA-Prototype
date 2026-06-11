@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dkm0c4rg6jubg"]
+
+[ext_resource type="Script" uid="uid://cxct0ntgukykj" path="res://Scripts/Main_Components/game_camera.gd" id="1_gwb6m"]
+
+[node name="GameCamera" type="Camera2D" unique_id=283588641]
+limit_enabled = false
+drag_horizontal_enabled = true
+drag_left_margin = 0.35
+drag_top_margin = 0.6
+drag_right_margin = 0.35
+drag_bottom_margin = 0.6
+script = ExtResource("1_gwb6m")

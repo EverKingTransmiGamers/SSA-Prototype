@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://cxf23tv2gkbkp"]
+
+[ext_resource type="Script" uid="uid://bi03tftew65ly" path="res://Scripts/Main_Components/pause_gui.gd" id="1_mbcys"]
+[ext_resource type="FontFile" uid="uid://ciwu3s42wycke" path="res://Assets/PGT-RW/Montserrat-Bold.ttf" id="2_r4me1"]
+
+[sub_resource type="Theme" id="Theme_pl1kt"]
+default_font = ExtResource("2_r4me1")
+default_font_size = 32
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8avv"]
+bg_color = Color(0.12, 0.12, 0.12, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxsm7"]
+bg_color = Color(0.23, 0.23, 0.23, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibak7"]
+bg_color = Color(0.18, 0.18, 0.18, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j6if"]
+bg_color = Color(0.12, 0.12, 0.12, 1)
+
+[sub_resource type="Theme" id="Theme_trf7d"]
+default_font = ExtResource("2_r4me1")
+default_font_size = 25
+Button/styles/focus = SubResource("StyleBoxFlat_i8avv")
+Button/styles/hover = SubResource("StyleBoxFlat_qxsm7")
+Button/styles/normal = SubResource("StyleBoxFlat_ibak7")
+Button/styles/pressed = SubResource("StyleBoxFlat_7j6if")
+
+[node name="Pause_GUI" type="CanvasLayer" unique_id=667369538]
+visible = false
+script = ExtResource("1_mbcys")
+
+[node name="GUI1K" type="Control" parent="." unique_id=1472135225]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="Label" parent="GUI1K" unique_id=1973862608]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.15
+offset_left = -49.5
+offset_top = -20.0
+offset_right = 49.5
+offset_bottom = 20.0
+grow_horizontal = 2
+theme = SubResource("Theme_pl1kt")
+text = "Pausa"
+horizontal_alignment = 1
+
+[node name="Continue_Btn" type="Button" parent="GUI1K" unique_id=1050286790]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -80.0
+offset_right = 75.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_trf7d")
+text = "Continuar"
+
+[node name="Restart_Btn" type="Button" parent="GUI1K" unique_id=74071566]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -30.0
+offset_right = 75.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_trf7d")
+text = "Reiniciar"
+
+[node name="Exit_Btn" type="Button" parent="GUI1K" unique_id=1717944070]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 20.0
+offset_right = 75.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_trf7d")
+text = "Salir"
+
+[connection signal="pressed" from="GUI1K/Continue_Btn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="GUI1K/Restart_Btn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="GUI1K/Exit_Btn" to="." method="_on_exit_btn_pressed"]

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://v5aai5fswitk"]
+
+[ext_resource type="Script" uid="uid://dbyjn7q2wbx4t" path="res://Scripts/Main_Components/level_scene_manager.gd" id="1_46njm"]
+[ext_resource type="PackedScene" uid="uid://cxf23tv2gkbkp" path="res://Scenes/Main_Components/pause_gui.tscn" id="2_cyu7t"]
+[ext_resource type="PackedScene" uid="uid://b0qr76t0prpb4" path="res://Scenes/state_machine.tscn" id="2_sood3"]
+[ext_resource type="Script" uid="uid://72ifti86d3rp" path="res://Assets/PGT-RW/Scripts/Finite State Machine/LevelSceneManager_States/LSMStateSelector.gd" id="4_sood3"]
+[ext_resource type="Script" uid="uid://ct5tu7ym1o8lr" path="res://Assets/PGT-RW/Scripts/Finite State Machine/LevelSceneManager_States/LSMStateLevel.gd" id="5_sax2f"]
+[ext_resource type="PackedScene" uid="uid://drqpue78s2atp" path="res://Scenes/player_spawner.tscn" id="5_xkcns"]
+
+[node name="LevelSceneManager" type="Node" unique_id=1894625201]
+editor_description = "A simple Level Manager to change between levels without losing the player."
+script = ExtResource("1_46njm")
+
+[node name="Pause_GUI" parent="." unique_id=347802160 instance=ExtResource("2_cyu7t")]
+process_mode = 3
+
+[node name="StateMachine" parent="." unique_id=690421621 node_paths=PackedStringArray("default_state") instance=ExtResource("2_sood3")]
+default_state = NodePath("LvlStateSelector")
+
+[node name="LvlStateSelector" type="Node" parent="StateMachine" unique_id=1030767943]
+script = ExtResource("4_sood3")
+
+[node name="LvlStateLevel" type="Node" parent="StateMachine" unique_id=1171260157]
+script = ExtResource("5_sax2f")
+
+[node name="Player_Spawner" parent="." unique_id=1146083431 instance=ExtResource("5_xkcns")]
+position = Vector2(198, 410)

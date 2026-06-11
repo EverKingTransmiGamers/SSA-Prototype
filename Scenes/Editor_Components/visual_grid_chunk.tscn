@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b7ga3xygbkvj3"]
+
+[ext_resource type="Script" uid="uid://dcejbmbf534av" path="res://Assets/PGT-RW/Scripts/visual_grid_chunk.gd" id="1_x7mw7"]
+
+[node name="VisualGridChunk" type="Node2D" unique_id=1588678032]
+script = ExtResource("1_x7mw7")

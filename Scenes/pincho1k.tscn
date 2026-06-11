@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cqt761ukrp0gq"]
+
+[ext_resource type="Texture2D" uid="uid://dd7n0meu1t5xr" path="res://Assets/PGT-RW/Textures/Terrain/Pincho_Placeholder.svg" id="1_6mqb8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76lse"]
+size = Vector2(10, 32)
+
+[node name="Pincho1K" type="Area2D" unique_id=1687231253 groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="PinchoPlaceholder" type="Sprite2D" parent="." unique_id=995829018]
+texture = ExtResource("1_6mqb8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207587227]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_76lse")

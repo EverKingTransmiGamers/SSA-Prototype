@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ncghwbvclvmb"]
+
+[ext_resource type="Texture2D" uid="uid://bhwb3tu8vj8kj" path="res://Assets/PGT-RW/Textures/Terrain/Piso_Placeholder_x56.svg" id="1_vpa8y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsabg"]
+size = Vector2(56, 56)
+
+[node name="Block1K" type="StaticBody2D" unique_id=289639384]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Sprite1K" type="Sprite2D" parent="." unique_id=70349763]
+texture = ExtResource("1_vpa8y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=544489372]
+shape = SubResource("RectangleShape2D_fsabg")

@@ -1,0 +1,265 @@
+[gd_scene format=4 uid="uid://cix8ovofuj6sg"]
+
+[ext_resource type="FontFile" uid="uid://ciwu3s42wycke" path="res://Assets/PGT-RW/Montserrat-Bold.ttf" id="1_khyyl"]
+[ext_resource type="PackedScene" uid="uid://dc67hmui28ogo" path="res://Scenes/player_spawner_test.tscn" id="2_288u3"]
+[ext_resource type="Texture2D" uid="uid://bhwb3tu8vj8kj" path="res://Assets/PGT-RW/Textures/Terrain/Piso_Placeholder_x56.svg" id="3_khyyl"]
+[ext_resource type="Texture2D" uid="uid://bqx8amqvuceed" path="res://Assets/PGT-RW/Textures/Terrain/Muro_Placeholder_x56.svg" id="4_288u3"]
+[ext_resource type="PackedScene" uid="uid://cqt761ukrp0gq" path="res://Scenes/pincho1k.tscn" id="5_iughx"]
+[ext_resource type="Script" uid="uid://cuw8ym5qpjbdt" path="res://Assets/PGT-RW/Scripts/pause_gui_test.gd" id="6_khyyl"]
+
+[sub_resource type="Theme" id="Theme_i8avv"]
+default_font = ExtResource("1_khyyl")
+default_font_size = 32
+Label/colors/font_color = Color(0, 0.637, 0.78, 1)
+
+[sub_resource type="Theme" id="Theme_ibak7"]
+default_font = ExtResource("1_khyyl")
+default_font_size = 32
+Label/colors/font_color = Color(0, 0.585, 0.9, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eifrb"]
+texture = ExtResource("3_khyyl")
+texture_region_size = Vector2i(56, 56)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28, -28, 28, -28, 28, 28, -28, 28)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
+
+[sub_resource type="TileSet" id="TileSet_rbfcb"]
+tile_size = Vector2i(56, 56)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Floor_Trrn"
+terrain_set_0/terrain_0/color = Color(0.162592, 0.736256, 0.964744, 1)
+sources/1 = SubResource("TileSetAtlasSource_eifrb")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iughx"]
+texture = ExtResource("4_288u3")
+texture_region_size = Vector2i(56, 56)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28, -28, 28, -28, 28, 28, -28, 28)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+0:0/0/terrains_peering_bit/bottom_left_corner = 0
+0:0/0/terrains_peering_bit/left_side = 0
+0:0/0/terrains_peering_bit/top_left_corner = 0
+0:0/0/terrains_peering_bit/top_side = 0
+0:0/0/terrains_peering_bit/top_right_corner = 0
+
+[sub_resource type="TileSet" id="TileSet_qqltt"]
+tile_size = Vector2i(56, 56)
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Wall_Trrn"
+terrain_set_0/terrain_0/color = Color(0.162592, 0.736256, 0.964744, 1)
+sources/2 = SubResource("TileSetAtlasSource_iughx")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0qnlt"]
+scenes/2/scene = ExtResource("5_iughx")
+
+[sub_resource type="TileSet" id="TileSet_nxrp8"]
+tile_size = Vector2i(56, 56)
+sources/2 = SubResource("TileSetScenesCollectionSource_0qnlt")
+
+[sub_resource type="Theme" id="Theme_qxsm7"]
+default_font = ExtResource("1_khyyl")
+default_font_size = 20
+Label/colors/font_color = Color(0.33654, 0.79, 0.1264, 1)
+
+[sub_resource type="Theme" id="Theme_pl1kt"]
+default_font = ExtResource("1_khyyl")
+default_font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8avv"]
+bg_color = Color(0.12, 0.12, 0.12, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxsm7"]
+bg_color = Color(0.23, 0.23, 0.23, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibak7"]
+bg_color = Color(0.18, 0.18, 0.18, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j6if"]
+bg_color = Color(0.12, 0.12, 0.12, 1)
+
+[sub_resource type="Theme" id="Theme_trf7d"]
+default_font = ExtResource("1_khyyl")
+default_font_size = 25
+Button/styles/focus = SubResource("StyleBoxFlat_i8avv")
+Button/styles/hover = SubResource("StyleBoxFlat_qxsm7")
+Button/styles/normal = SubResource("StyleBoxFlat_ibak7")
+Button/styles/pressed = SubResource("StyleBoxFlat_7j6if")
+
+[node name="Test_world0" type="Node2D" unique_id=176423577]
+
+[node name="Arrows1" type="Label" parent="." unique_id=355293289]
+offset_left = 5202.0
+offset_top = 694.0
+offset_right = 5256.0
+offset_bottom = 992.0
+theme = SubResource("Theme_i8avv")
+text = "⬇️
+
+⬇️
+
+⬇️
+
+⬇️"
+
+[node name="Arrows3" type="Label" parent="." unique_id=1164957117]
+offset_left = 5253.0
+offset_top = 1076.0
+offset_right = 5307.0
+offset_bottom = 1374.0
+theme = SubResource("Theme_i8avv")
+text = "⬇️
+
+⬇️
+
+⬇️
+
+⬇️"
+
+[node name="Arrows2" type="Label" parent="." unique_id=1864647797]
+offset_left = 4950.0
+offset_top = 737.0
+offset_right = 5004.0
+offset_bottom = 1465.0
+rotation = -0.303707
+theme = SubResource("Theme_ibak7")
+text = "⬇️
+
+⬇️
+
+⬇️
+
+⬇️
+
+⬇️
+
+⬇️
+
+⬇️
+
+⬇️
+
+⬇️"
+
+[node name="Player_Spawner_Test" parent="." unique_id=1006376060 instance=ExtResource("2_288u3")]
+editor_description = "Posicion original: x 498 y -1591"
+position = Vector2(5252, 306)
+
+[node name="Cubo1K_TMLayer" type="TileMapLayer" parent="." unique_id=829631011]
+tile_map_data = PackedByteArray("AAAAAAcAAQAAAAAAAAABAAcAAQAAAAAAAAACAAcAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAcAAQAAAAAAAAAGAAcAAQAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAQAAAAAAAAAJAAcAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAAMAAgAAQAAAAAAAAANAAgAAQAAAAAAAAANAAkAAQAAAAAAAAAOAAkAAQAAAAAAAAAOAAoAAQAAAAAAAAAPAAoAAQAAAAAAAAAPAAsAAQAAAAAAAAAQAAsAAQAAAAAAAAARAAYAAQAAAAAAAAARAAsAAQAAAAAAAAASAAYAAQAAAAAAAAASAAsAAQAAAAAAAAATAAYAAQAAAAAAAAATAAsAAQAAAAAAAAAUAAYAAQAAAAAAAAAUAAsAAQAAAAAAAAAVAAsAAQAAAAAAAAAWAAsAAQAAAAAAAAAXAAsAAQAAAAAAAAAYAAQAAQAAAAAAAAAYAAsAAQAAAAAAAAAZAAQAAQAAAAAAAAAZAAsAAQAAAAAAAAAaAAQAAQAAAAAAAAAaAAsAAQAAAAAAAAAbAAQAAQAAAAAAAAAbAAsAAQAAAAAAAAAcAAsAAQAAAAAAAAAdAAoAAQAAAAAAAAAdAAsAAQAAAAAAAAAeAAoAAQAAAAAAAAAfAAkAAQAAAAAAAAAfAAoAAQAAAAAAAAAgAAkAAQAAAAAAAAAhAAgAAQAAAAAAAAAhAAkAAQAAAAAAAAAiAAgAAQAAAAAAAAAjAAgAAQAAAAAAAAAkAAgAAQAAAAAAAAAlAAgAAQAAAAAAAAAmAAgAAQAAAAAAAAAnAAgAAQAAAAAAAAAoAAgAAQAAAAAAAAApAAgAAQAAAAAAAAAqAAgAAQAAAAAAAAArAAgAAQAAAAAAAAAsAAgAAQAAAAAAAAAsABAAAQAAAAAAAAAtABAAAQAAAAAAAAAuAAkAAQAAAAAAAAAuABAAAQAAAAAAAAAvABAAAQAAAAAAAAAwAAoAAQAAAAAAAAAwABAAAQAAAAAAAAAxABAAAQAAAAAAAAAyAAsAAQAAAAAAAAAyABAAAQAAAAAAAAAzABAAAQAAAAAAAAA0AAwAAQAAAAAAAAA0ABAAAQAAAAAAAAA1ABAAAQAAAAAAAAA2AA0AAQAAAAAAAAA2ABAAAQAAAAAAAAA3AA0AAQAAAAAAAAA4AA0AAQAAAAAAAAA5AA0AAQAAAAAAAAA6AA0AAQAAAAAAAAA7AA0AAQAAAAAAAAA8AA0AAQAAAAAAAAA9AA0AAQAAAAAAAAA+AA0AAQAAAAAAAAA/AA0AAQAAAAAAAABAAA0AAQAAAAAAAABBAA0AAQAAAAAAAABCAA0AAQAAAAAAAABDAA0AAQAAAAAAAABEAA0AAQAAAAAAAABFAA0AAQAAAAAAAABGAA0AAQAAAAAAAABHAA0AAQAAAAAAAABIAA0AAQAAAAAAAABJAA0AAQAAAAAAAABKAA0AAQAAAAAAAABMAA0AAQAAAAAAAABLAA0AAQAAAAAAAABZABcAAQAAAAAAAABYABQAAQAAAAAAAABXABEAAQAAAAAAAABWAA4AAQAAAAAAAABVAA4AAQAAAAAAAABUAA4AAQAAAAAAAABTAA4AAQAAAAAAAABSAA4AAQAAAAAAAABRAA4AAQAAAAAAAABQAA4AAQAAAAAAAABPAA4AAQAAAAAAAABOAA4AAQAAAAAAAABNAA4AAQAAAAAAAABMAA4AAQAAAAAAAABWABEAAQAAAAAAAABXABQAAQAAAAAAAABYABcAAQAAAAAAAABZABoAAQAAAAAAAACRABoAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_rbfcb")
+
+[node name="Cubo2K_TMLayer" type="TileMapLayer" parent="." unique_id=1147180312]
+tile_map_data = PackedByteArray("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")
+tile_set = SubResource("TileSet_qqltt")
+
+[node name="Pincho1K_TMLayer" type="TileMapLayer" parent="." unique_id=397727922]
+tile_map_data = PackedByteArray("AAAtAA8AAgAAAAAAAgAvAA8AAgAAAAAAAgAxAA8AAgAAAAAAAgAzAA8AAgAAAAAAAgA1AA8AAgAAAAAAAgA=")
+tile_set = SubResource("TileSet_nxrp8")
+
+[node name="Label1" type="Label" parent="." unique_id=713023845]
+offset_left = 7938.0
+offset_top = 1238.0
+offset_right = 8097.0
+offset_bottom = 1293.0
+theme = SubResource("Theme_qxsm7")
+text = "Llegaste al final
+Yay 😐️😐️"
+
+[node name="Pause_GUI" type="CanvasLayer" parent="." unique_id=134428002]
+process_mode = 3
+visible = false
+script = ExtResource("6_khyyl")
+
+[node name="GUI1K" type="Control" parent="Pause_GUI" unique_id=1649887177]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pause_GUI/GUI1K" unique_id=903229844]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.5
+offset_right = 49.5
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = SubResource("Theme_pl1kt")
+text = "Pausa"
+
+[node name="Continue_Btn" type="Button" parent="Pause_GUI/GUI1K" unique_id=1101402481]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -80.0
+offset_right = 75.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_trf7d")
+text = "Continuar"
+
+[node name="Restart_Btn" type="Button" parent="Pause_GUI/GUI1K" unique_id=2032403876]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -30.0
+offset_right = 75.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_trf7d")
+text = "Reiniciar"
+
+[node name="Exit_Btn" type="Button" parent="Pause_GUI/GUI1K" unique_id=1353488160]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = 20.0
+offset_right = 75.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_trf7d")
+text = "Salir"
+
+[connection signal="pressed" from="Pause_GUI/GUI1K/Continue_Btn" to="Pause_GUI" method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="Pause_GUI/GUI1K/Restart_Btn" to="Pause_GUI" method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="Pause_GUI/GUI1K/Exit_Btn" to="Pause_GUI" method="_on_exit_btn_pressed"]

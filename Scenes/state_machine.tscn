@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b0qr76t0prpb4"]
+
+[ext_resource type="Script" uid="uid://c3x2v1vdfgxju" path="res://Scripts/Finite State Machine/StateMachine.gd" id="1_uvuqw"]
+
+[node name="StateMachine" type="Node" unique_id=53050387]
+editor_description = "A Finite State Machine to control any node with a better structure."
+script = ExtResource("1_uvuqw")

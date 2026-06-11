@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://pm3a7bs2dfhi"]
+
+[ext_resource type="Texture2D" uid="uid://bqx8amqvuceed" path="res://Assets/PGT-RW/Textures/Terrain/Muro_Placeholder_x56.svg" id="1_f5ko1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_antf8"]
+size = Vector2(56, 56)
+
+[node name="Block2K" type="StaticBody2D" unique_id=1318162200]
+
+[node name="Sprite1K" type="Sprite2D" parent="." unique_id=904065713]
+texture = ExtResource("1_f5ko1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=760007138]
+shape = SubResource("RectangleShape2D_antf8")

@@ -1,0 +1,259 @@
+[gd_scene format=3 uid="uid://ckrx3tfrm25kq"]
+
+[ext_resource type="FontFile" uid="uid://ciwu3s42wycke" path="res://Assets/PGT-RW/Montserrat-Bold.ttf" id="1_m8t1p"]
+[ext_resource type="Script" uid="uid://c3p6n1rngdw0o" path="res://Assets/PGT-RW/Scripts/MenúInicio.gd" id="1_qrllm"]
+
+[sub_resource type="Theme" id="Theme_lc4t7"]
+default_font = ExtResource("1_m8t1p")
+default_font_size = 18
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8kkd"]
+bg_color = Color(0.13, 0.13, 0.13, 1)
+
+[sub_resource type="Theme" id="Theme_w67ys"]
+default_font = ExtResource("1_m8t1p")
+default_font_size = 26
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 0
+Button/styles/normal = SubResource("StyleBoxFlat_h8kkd")
+
+[sub_resource type="Theme" id="Theme_h8kkd"]
+default_font = ExtResource("1_m8t1p")
+default_font_size = 48
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/outline_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lc4t7"]
+bg_color = Color(0.14165303, 0.14165321, 0.14165303, 1)
+
+[sub_resource type="Theme" id="Theme_fok73"]
+default_font = ExtResource("1_m8t1p")
+default_font_size = 22
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32rtn"]
+bg_color = Color(0.35531357, 0.35531357, 0.35531345, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fok73"]
+bg_color = Color(0.29586652, 0.29586652, 0.29586637, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xm8kv"]
+bg_color = Color(0.20392033, 0.20392036, 0.2039203, 1)
+
+[sub_resource type="Theme" id="Theme_32rtn"]
+default_font = ExtResource("1_m8t1p")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 4
+Button/font_sizes/font_size = 24
+Button/styles/hover = SubResource("StyleBoxFlat_32rtn")
+Button/styles/normal = SubResource("StyleBoxFlat_fok73")
+Button/styles/pressed = SubResource("StyleBoxFlat_xm8kv")
+
+[node name="MenuInicio" type="Control" unique_id=1224572841]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_qrllm")
+
+[node name="Warning_Container" type="Control" parent="." unique_id=1489739136]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.828283
+anchor_right = 0.5
+anchor_bottom = 0.828283
+grow_horizontal = 0
+grow_vertical = 2
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="WarningLabel" type="Label" parent="Warning_Container" unique_id=815490309]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.5
+offset_top = -15.5
+offset_right = 133.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_lc4t7")
+text = "Aviso, trabajo en progreso."
+horizontal_alignment = 1
+
+[node name="exit_button" type="Button" parent="." unique_id=1413172346]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.028409092
+anchor_top = 0.038720537
+anchor_right = 0.028409092
+anchor_bottom = 0.038720537
+offset_right = 120.0
+offset_bottom = 50.0
+theme = SubResource("Theme_w67ys")
+text = "Cerrar"
+metadata/_edit_use_anchors_ = true
+
+[node name="Title_Container" type="Control" parent="." unique_id=563880186]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.168
+anchor_right = 0.5
+anchor_bottom = 0.168
+metadata/_edit_group_ = true
+
+[node name="TitleLabel" type="RichTextLabel" parent="Title_Container" unique_id=1924284555]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -64.0
+offset_right = 180.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_h8kkd")
+text = "StickSpyMan
+Adventures"
+horizontal_alignment = 1
+
+[node name="Main Buttons" type="HBoxContainer" parent="." unique_id=1220081527]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -30.0
+offset_right = 122.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+metadata/_edit_group_ = true
+
+[node name="start_button" type="Button" parent="Main Buttons" unique_id=817725076]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme = SubResource("Theme_w67ys")
+text = "Iniciar"
+
+[node name="editor_button" type="Button" parent="Main Buttons" unique_id=1975622891]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme = SubResource("Theme_w67ys")
+text = "Editor"
+
+[node name="Editor Button" type="Control" parent="." unique_id=639869726]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button Container" type="Control" parent="." unique_id=2036294343]
+layout_mode = 1
+anchor_left = 0.183712
+anchor_top = 0.80303
+anchor_right = 0.183712
+anchor_bottom = 0.80303
+metadata/_edit_use_anchors_ = true
+
+[node name="test_level_button" type="Button" parent="Button Container" unique_id=967939262]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -37.5
+offset_right = 150.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_w67ys")
+text = "Ir al nivel de Pruebas"
+
+[node name="ExitDialogCont" type="PanelContainer" parent="." unique_id=1047380699]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.125
+offset_top = -91.0
+offset_right = 221.125
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lc4t7")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ExitDialogCont" unique_id=1980452131]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ExitQuestionLabel" type="Label" parent="ExitDialogCont/VBoxContainer" unique_id=1517892203]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = SubResource("Theme_fok73")
+text = "¿Estas seguro de que quieres salir?"
+horizontal_alignment = 1
+
+[node name="ButtonsDialogCont" type="HBoxContainer" parent="ExitDialogCont/VBoxContainer" unique_id=925811106]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 46
+
+[node name="ExitYesButton" type="Button" parent="ExitDialogCont/VBoxContainer/ButtonsDialogCont" unique_id=780655782]
+custom_minimum_size = Vector2(80, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_32rtn")
+text = "Sí"
+
+[node name="ExitNoButton" type="Button" parent="ExitDialogCont/VBoxContainer/ButtonsDialogCont" unique_id=200724353]
+custom_minimum_size = Vector2(80, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_32rtn")
+text = "No"
+
+[connection signal="pressed" from="exit_button" to="." method="_exit_button_pressed"]
+[connection signal="pressed" from="Main Buttons/start_button" to="." method="_start_button_pressed"]
+[connection signal="pressed" from="Main Buttons/editor_button" to="." method="_on_editor_button_pressed"]
+[connection signal="pressed" from="Button Container/test_level_button" to="." method="_on_test_level_button_pressed"]
+[connection signal="button_up" from="ExitDialogCont/VBoxContainer/ButtonsDialogCont/ExitYesButton" to="." method="_exit_yes_button_up"]
+[connection signal="button_up" from="ExitDialogCont/VBoxContainer/ButtonsDialogCont/ExitNoButton" to="." method="_exit_no_button_up"]

@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://clitis128xofo"]
+
+[ext_resource type="Script" uid="uid://8dniuqf8w3s2" path="res://Scripts/Main_Components/loading_animation.gd" id="1_6ilfu"]
+
+[sub_resource type="Theme" id="Theme_x8hfx"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 0
+Label/font_sizes/font_size = 40
+Label/fonts/font = null
+
+[sub_resource type="Theme" id="Theme_6ilfu"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 0
+Label/font_sizes/font_size = 30
+Label/fonts/font = null
+
+[sub_resource type="Animation" id="Animation_x8hfx"]
+resource_name = "Loading1K"
+length = 4.8333335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainGUI:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 3.9666667, 4.6666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.1, 4.833333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_load_menu_scene"
+}, {
+"args": [],
+"method": &"_changeToMainMenu"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ilfu"]
+_data = {
+&"Loading1K": SubResource("Animation_x8hfx")
+}
+
+[node name="LoadingAnimation" type="CanvasLayer" unique_id=1553588403]
+script = ExtResource("1_6ilfu")
+
+[node name="MainGUI" type="Control" parent="." unique_id=1943022911]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MainTitle_Cont" type="Control" parent="MainGUI" unique_id=722948921]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.21
+anchor_right = 0.5
+anchor_bottom = 0.21
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="MainTitle" type="Label" parent="MainGUI/MainTitle_Cont" unique_id=278474416]
+layout_mode = 0
+offset_left = -293.0
+offset_top = -85.0
+offset_right = 293.0
+offset_bottom = 85.0
+theme = SubResource("Theme_x8hfx")
+text = "StickSpyMan Adventures"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubTitle_Cont" type="Control" parent="MainGUI" unique_id=1016662114]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.556
+anchor_right = 0.5
+anchor_bottom = 0.556
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="SubTitle" type="Label" parent="MainGUI/SubTitle_Cont" unique_id=735164178]
+layout_mode = 0
+offset_left = -293.0
+offset_top = -105.0
+offset_right = 293.0
+offset_bottom = 105.0
+theme = SubResource("Theme_6ilfu")
+text = "Made by:
+EverKing
+TransmiGamers"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainAnimationPlayer1K" type="AnimationPlayer" parent="." unique_id=965990908]
+libraries/ = SubResource("AnimationLibrary_6ilfu")

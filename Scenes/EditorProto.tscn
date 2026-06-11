@@ -1,0 +1,250 @@
+[gd_scene format=3 uid="uid://ba114kohu7slf"]
+
+[ext_resource type="Script" uid="uid://ckwxv0ggr0c51" path="res://Scripts/EditorProto.gd" id="1_lg2oq"]
+[ext_resource type="Script" uid="uid://dmlj4b81lr26g" path="res://Scripts/EditorComponents/editor_pause_gui.gd" id="2_3ug4s"]
+[ext_resource type="FontFile" uid="uid://ciwu3s42wycke" path="res://Assets/PGT-RW/Montserrat-Bold.ttf" id="3_k82sr"]
+[ext_resource type="PackedScene" uid="uid://bv37qu0mcwvdg" path="res://Scenes/Editor_Components/editor_camera.tscn" id="4_wjj28"]
+[ext_resource type="Script" uid="uid://djios147ra6ja" path="res://Scripts/EditorComponents/editor_object_canvas1k.gd" id="5_1p5t7"]
+[ext_resource type="Script" uid="uid://ntwyfghqijvq" path="res://Assets/PGT-RW/Scripts/visual_grid_1k.gd" id="6_881ix"]
+
+[sub_resource type="Theme" id="Theme_pl1kt"]
+default_font = ExtResource("3_k82sr")
+default_font_size = 32
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8avv"]
+bg_color = Color(0.12, 0.12, 0.12, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxsm7"]
+bg_color = Color(0.23, 0.23, 0.23, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibak7"]
+bg_color = Color(0.18, 0.18, 0.18, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j6if"]
+bg_color = Color(0.12, 0.12, 0.12, 1)
+
+[sub_resource type="Theme" id="Theme_trf7d"]
+default_font = ExtResource("3_k82sr")
+default_font_size = 25
+Button/styles/focus = SubResource("StyleBoxFlat_i8avv")
+Button/styles/hover = SubResource("StyleBoxFlat_qxsm7")
+Button/styles/normal = SubResource("StyleBoxFlat_ibak7")
+Button/styles/pressed = SubResource("StyleBoxFlat_7j6if")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lg2oq"]
+bg_color = Color(0.12, 0.12, 0.12, 0.5882353)
+
+[sub_resource type="Theme" id="Theme_7acan"]
+default_font = ExtResource("3_k82sr")
+default_font_size = 17
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 10
+
+[sub_resource type="Theme" id="Theme_obic3"]
+default_font = ExtResource("3_k82sr")
+default_font_size = 18
+Button/styles/focus = SubResource("StyleBoxFlat_i8avv")
+Button/styles/hover = SubResource("StyleBoxFlat_qxsm7")
+Button/styles/normal = SubResource("StyleBoxFlat_ibak7")
+Button/styles/pressed = SubResource("StyleBoxFlat_7j6if")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7t6a"]
+size = Vector2(1800, 32)
+
+[node name="EditorProto" type="Node2D" unique_id=59743290]
+editor_description = "El tamaño de los objetos en el lienzo será de 56x56 pixeles"
+script = ExtResource("1_lg2oq")
+nombreDelNivel = "Mi Primer Nivel"
+renderDistance = 8
+
+[node name="EditorPauseGUI" type="CanvasLayer" parent="." unique_id=2102021784]
+unique_name_in_owner = true
+process_mode = 3
+layer = 3
+visible = false
+script = ExtResource("2_3ug4s")
+
+[node name="GUI1K" type="Control" parent="EditorPauseGUI" unique_id=308162486]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="PauseTitle" type="Label" parent="EditorPauseGUI/GUI1K" unique_id=1027267360]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.15
+anchor_right = 0.5
+anchor_bottom = 0.15
+offset_left = -49.5
+offset_top = -20.0
+offset_right = 49.5
+offset_bottom = 20.0
+grow_horizontal = 2
+theme = SubResource("Theme_pl1kt")
+text = "Pausa"
+horizontal_alignment = 1
+
+[node name="MainButtonsCont" type="VBoxContainer" parent="EditorPauseGUI/GUI1K" unique_id=69879512]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -52.0
+offset_right = 92.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continue_Btn" type="Button" parent="EditorPauseGUI/GUI1K/MainButtonsCont" unique_id=1603989773]
+custom_minimum_size = Vector2(210, 40)
+layout_mode = 2
+theme = SubResource("Theme_trf7d")
+text = "Continuar"
+
+[node name="Save_Btn" type="Button" parent="EditorPauseGUI/GUI1K/MainButtonsCont" unique_id=1751615298]
+custom_minimum_size = Vector2(210, 40)
+layout_mode = 2
+theme = SubResource("Theme_trf7d")
+text = "Guardar"
+
+[node name="SaveNExit_Btn" type="Button" parent="EditorPauseGUI/GUI1K/MainButtonsCont" unique_id=1128415409]
+custom_minimum_size = Vector2(210, 40)
+layout_mode = 2
+theme = SubResource("Theme_trf7d")
+text = "Guardar y Salir"
+
+[node name="SaveDialogPanelCont" type="Panel" parent="EditorPauseGUI/GUI1K" unique_id=1532892984]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.32954547
+anchor_top = 0.37037036
+anchor_right = 0.67045456
+anchor_bottom = 0.6296296
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lg2oq")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="TitleQuestion" type="Label" parent="EditorPauseGUI/GUI1K/SaveDialogPanelCont" unique_id=266418146]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.071428575
+anchor_right = 0.85
+anchor_bottom = 0.37662336
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = SubResource("Theme_7acan")
+text = "¿Estas seguro de que quieres
+guardar este nivel?"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="QuestionButtonsCont" type="HBoxContainer" parent="EditorPauseGUI/GUI1K/SaveDialogPanelCont" unique_id=1108147852]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33333334
+anchor_top = 0.58441556
+anchor_right = 0.6666667
+anchor_bottom = 0.77922076
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="YesButton" type="Button" parent="EditorPauseGUI/GUI1K/SaveDialogPanelCont/QuestionButtonsCont" unique_id=177843908]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = SubResource("Theme_obic3")
+text = "Si"
+autowrap_trim_flags = 0
+
+[node name="NoButton" type="Button" parent="EditorPauseGUI/GUI1K/SaveDialogPanelCont/QuestionButtonsCont" unique_id=496734649]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = SubResource("Theme_obic3")
+text = "No"
+
+[node name="EditorCamera1K" parent="." unique_id=431092771 node_paths=PackedStringArray("debugInfoLabels") instance=ExtResource("4_wjj28")]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(280, 280)
+debugInfoLabels = {
+&"CamChunkPosInfo": NodePath("CanvasLayer/GUI/DebugInfoPanel/DebugInfoCont/CamChunkPosInfo"),
+&"CamCoordsInfo": NodePath("CanvasLayer/GUI/DebugInfoPanel/DebugInfoCont/CamCoordsInfo"),
+&"CamZoomInfo": NodePath("CanvasLayer/GUI/DebugInfoPanel/DebugInfoCont/CamZoomInfo"),
+&"FPSInfo": NodePath("CanvasLayer/GUI/DebugInfoPanel/DebugInfoCont/FPSInfo"),
+&"MouseChunkCoordsInfo": NodePath("CanvasLayer/GUI/DebugInfoPanel/DebugInfoCont/MouseChunkCoordsInfo")
+}
+
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=256397764]
+unique_name_in_owner = true
+position = Vector2(194, 330)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=38602724]
+z_index = -2
+position = Vector2(194, 457)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=52559614]
+shape = SubResource("RectangleShape2D_s7t6a")
+
+[node name="Platform_Line" type="Line2D" parent="StaticBody2D" unique_id=591673031]
+points = PackedVector2Array(-900, -12, 900, -12, 900, 12, -900, 12)
+closed = true
+default_color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="ObjectCanvas1K" type="Node2D" parent="." unique_id=459372378]
+unique_name_in_owner = true
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+script = ExtResource("5_1p5t7")
+
+[node name="VisualGridChunks1K" type="Node2D" parent="." unique_id=1047668057]
+process_thread_group = 2
+process_thread_group_order = 0
+process_thread_messages = 0
+script = ExtResource("6_881ix")
+
+[node name="UpdateChunksTimer" type="Timer" parent="." unique_id=373008765]
+wait_time = 0.1
+autostart = true
+
+[connection signal="button_up" from="EditorPauseGUI/GUI1K/MainButtonsCont/Continue_Btn" to="EditorPauseGUI" method="_on_continue_btn_up"]
+[connection signal="pressed" from="EditorPauseGUI/GUI1K/MainButtonsCont/Save_Btn" to="EditorPauseGUI" method="_on_save_btn_pressed"]
+[connection signal="pressed" from="EditorPauseGUI/GUI1K/MainButtonsCont/SaveNExit_Btn" to="EditorPauseGUI" method="_on_savenexit_btn_pressed"]
+[connection signal="pressed" from="EditorPauseGUI/GUI1K/SaveDialogPanelCont/QuestionButtonsCont/YesButton" to="EditorPauseGUI" method="_on_yes_btn_pressed"]
+[connection signal="pressed" from="EditorPauseGUI/GUI1K/SaveDialogPanelCont/QuestionButtonsCont/NoButton" to="EditorPauseGUI" method="_on_no_btn_pressed"]
+[connection signal="timeout" from="UpdateChunksTimer" to="ObjectCanvas1K" method="_updateChunk_timer_timeout"]
+[connection signal="timeout" from="UpdateChunksTimer" to="VisualGridChunks1K" method="_updateChunksTimer_timeout"]

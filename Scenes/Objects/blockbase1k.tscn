@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ukfbsr37x7lp"]
+
+[ext_resource type="Texture2D" uid="uid://cplhsbw6oe0k0" path="res://Assets/PGT-RW/Textures/Terrain/BlocksPlaceholderAtlas.png" id="1_cfr87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsabg"]
+size = Vector2(58, 58)
+
+[node name="blockbase" type="StaticBody2D" unique_id=289639384]
+collision_layer = 4
+collision_mask = 0
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=70349763]
+texture = ExtResource("1_cfr87")
+region_enabled = true
+region_rect = Rect2(0, 0, 58, 58)
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=544489372]
+shape = SubResource("RectangleShape2D_fsabg")

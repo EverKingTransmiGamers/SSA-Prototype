@@ -1,0 +1,656 @@
+[gd_scene format=3 uid="uid://t000wf51eoaw"]
+
+[ext_resource type="Script" uid="uid://clqj828b1s6j6" path="res://Assets/PGT-RW/Scripts/Player.gd" id="1_lslt6"]
+[ext_resource type="FontFile" uid="uid://ciwu3s42wycke" path="res://Assets/PGT-RW/Montserrat-Bold.ttf" id="2_ulo2v"]
+[ext_resource type="Texture2D" uid="uid://bqfywmnsnnb3c" path="res://Assets/PGT-RW/Textures/Player/SS_Animts/SS_GeneralActions.png" id="3_1iu4k"]
+[ext_resource type="Texture2D" uid="uid://dhniuf4mya5dk" path="res://Assets/PGT-RW/Textures/Player/SS_Animts/SS_MovementActions.png" id="4_m0x7a"]
+[ext_resource type="PackedScene" uid="uid://dkm0c4rg6jubg" path="res://Scenes/Main_Components/game_camera.tscn" id="5_5v66d"]
+[ext_resource type="PackedScene" uid="uid://b0qr76t0prpb4" path="res://Scenes/state_machine.tscn" id="6_x63xi"]
+[ext_resource type="Script" uid="uid://2c82hx1v3sfw" path="res://Assets/PGT-RW/Scripts/Finite State Machine/Player_States/player_state_idle.gd" id="7_i2e8t"]
+[ext_resource type="Script" uid="uid://dxfuy243g6yy5" path="res://Assets/PGT-RW/Scripts/Finite State Machine/Player_States/player_state_accelerating.gd" id="8_qidb7"]
+[ext_resource type="Script" uid="uid://cqxup5dvp0aqq" path="res://Assets/PGT-RW/Scripts/Finite State Machine/Player_States/player_state_stopping_accel.gd" id="9_70hv0"]
+[ext_resource type="Script" uid="uid://p7rslgf6jymg" path="res://Assets/PGT-RW/Scripts/Finite State Machine/Player_States/player_state_running.gd" id="10_8flut"]
+[ext_resource type="Script" uid="uid://bn3np78tfcaxw" path="res://Assets/PGT-RW/Scripts/Finite State Machine/Player_States/player_state_stoppin_runnin.gd" id="11_u7x0b"]
+[ext_resource type="Script" uid="uid://b3lhr18l2tmp4" path="res://Assets/PGT-RW/Scripts/Finite State Machine/Player_States/player_state_jumping.gd" id="12_utwlt"]
+[ext_resource type="Script" uid="uid://c1lwe8h2lrqcc" path="res://Assets/PGT-RW/Scripts/Finite State Machine/Player_States/player_state_jumping_running.gd" id="13_kih0c"]
+[ext_resource type="Script" uid="uid://c8aqb02cinntj" path="res://Assets/PGT-RW/Scripts/Finite State Machine/Player_States/player_state_falling.gd" id="14_lyrkg"]
+[ext_resource type="Script" uid="uid://bhep8amj87kjl" path="res://Assets/PGT-RW/Scripts/Finite State Machine/Player_States/player_state_falling_runnin.gd" id="15_c43xd"]
+[ext_resource type="Script" uid="uid://b4gvwiaww7y1n" path="res://Assets/PGT-RW/Scripts/Finite State Machine/Player_States/player_state_dashing.gd" id="16_avx33"]
+[ext_resource type="Texture2D" uid="uid://cqtuuowinnokb" path="res://SS Side Canvas in 214px - Character in 169px large.png" id="17_rxg2u"]
+
+[sub_resource type="Theme" id="Theme_pu2lt"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/fonts/font = ExtResource("2_ulo2v")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1ek2"]
+size = Vector2(26, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukyrk"]
+size = Vector2(20, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwoeg"]
+size = Vector2(26, 132)
+
+[sub_resource type="Animation" id="Animation_pu2lt"]
+resource_name = "Acelerando"
+length = 0.56667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_GeneralActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126]
+}
+
+[sub_resource type="Animation" id="Animation_olqyp"]
+resource_name = "AterrizCorrer"
+length = 0.100003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_GeneralActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [105, 106, 107, 108]
+}
+
+[sub_resource type="Animation" id="Animation_p1odr"]
+resource_name = "AterrizCorri"
+length = 0.16667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_MovementActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [37, 38, 39, 40, 41, 42]
+}
+
+[sub_resource type="Animation" id="Animation_0gysh"]
+resource_name = "AterrizParando"
+length = 0.133337
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_MovementActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [32, 33, 34, 35, 36]
+}
+
+[sub_resource type="Animation" id="Animation_l6n3p"]
+resource_name = "AterrizQuieto"
+length = 0.06667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_GeneralActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [103, 104]
+}
+
+[sub_resource type="Animation" id="Animation_2ijsl"]
+resource_name = "CaidaCorri"
+length = 0.16667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_MovementActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [27, 28, 29, 30, 31, 32]
+}
+
+[sub_resource type="Animation" id="Animation_fs7ks"]
+resource_name = "CayendoQuieto"
+length = 0.16667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_GeneralActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [96, 97, 98, 99, 100, 101]
+}
+
+[sub_resource type="Animation" id="Animation_ukyrk"]
+resource_name = "Corriendo"
+length = 0.333337
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_MovementActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_h4iuc"]
+resource_name = "FrenandoAcel"
+length = 0.5333367
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_GeneralActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266666, 0.3, 0.33333302, 0.36666602, 0.39999998, 0.43333298, 0.46666598, 0.5, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [127, 128, 129, 130, 131, 132, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145]
+}
+
+[sub_resource type="Animation" id="Animation_7dp3o"]
+resource_name = "FrenandoCorri"
+length = 1.03334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_MovementActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366666, 0.4, 0.433333, 0.466666, 0.5, 0.533333, 0.566666, 0.6, 0.633333, 0.666666, 0.7, 0.733333, 0.766666, 0.8, 0.833333, 0.866663, 0.900003, 0.933333, 0.966663, 1, 1.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [46, 47, 48, 49, 50, 51, 52, 53, 54, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82]
+}
+
+[sub_resource type="Animation" id="Animation_bi64h"]
+resource_name = "PreCaidaCorri"
+length = 0.133337
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_MovementActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [23, 24, 25, 26, 27]
+}
+
+[sub_resource type="Animation" id="Animation_igrcy"]
+resource_name = "PreCayendoQuieto"
+length = 0.133337
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_GeneralActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [92, 93, 94, 95, 96]
+}
+
+[sub_resource type="Animation" id="Animation_fd4e3"]
+resource_name = "Idle"
+length = 2.63334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_GeneralActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.866667, 0.9, 0.933333, 0.966667, 1, 1.03333, 1.06667, 1.1, 1.13333, 1.16667, 1.2, 1.23333, 1.26667, 1.3, 1.33333, 1.36667, 1.4, 1.43333, 1.46667, 1.5, 1.53333, 1.56667, 1.6, 1.63333, 1.66667, 1.7, 1.73333, 1.76667, 1.8, 1.83333, 1.86667, 1.9, 1.93333, 1.96667, 2, 2.03333, 2.06667, 2.1, 2.13333, 2.16667, 2.2, 2.23333, 2.26667, 2.3, 2.33333, 2.36667, 2.4, 2.43333, 2.46667, 2.5, 2.53333, 2.56667, 2.6, 2.63333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79]
+}
+
+[sub_resource type="Animation" id="Animation_gymyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_GeneralActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [80]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite_Animations/SS_MovementActions:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [81]
+}
+
+[sub_resource type="Animation" id="Animation_wpjfl"]
+resource_name = "SaltandoCorri"
+length = 0.16667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_MovementActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [13, 14, 15, 16, 17, 18]
+}
+
+[sub_resource type="Animation" id="Animation_qqcod"]
+resource_name = "SaltandoQuieto"
+length = 0.16667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Animations/SS_GeneralActions:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [80, 81, 82, 83, 84, 85]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqcod"]
+_data = {
+&"Acelerando": SubResource("Animation_pu2lt"),
+&"AterrizCorrer": SubResource("Animation_olqyp"),
+&"AterrizCorri": SubResource("Animation_p1odr"),
+&"AterrizParando": SubResource("Animation_0gysh"),
+&"AterrizQuieto": SubResource("Animation_l6n3p"),
+&"CaidaCorri": SubResource("Animation_2ijsl"),
+&"CayendoQuieto": SubResource("Animation_fs7ks"),
+&"Corriendo": SubResource("Animation_ukyrk"),
+&"FrenandoAcel": SubResource("Animation_h4iuc"),
+&"FrenandoCorri": SubResource("Animation_7dp3o"),
+&"PreCaidaCorri": SubResource("Animation_bi64h"),
+&"PreCayendoQuieto": SubResource("Animation_igrcy"),
+&"Quieto": SubResource("Animation_fd4e3"),
+&"RESET": SubResource("Animation_gymyn"),
+&"SaltandoCorri": SubResource("Animation_wpjfl"),
+&"SaltandoQuieto": SubResource("Animation_qqcod")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bi64h"]
+animation = &"Acelerando"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wpjfl"]
+animation = &"AterrizCorrer"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_olqyp"]
+animation = &"AterrizCorri"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fs7ks"]
+animation = &"AterrizParando"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pu2lt"]
+animation = &"AterrizQuieto"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qqcod"]
+animation = &"CaidaCorri"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ukyrk"]
+animation = &"CayendoQuieto"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h4iuc"]
+animation = &"Corriendo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p1odr"]
+animation = &"FrenandoAcel"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ijsl"]
+animation = &"FrenandoCorri"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_igrcy"]
+animation = &"PreCaidaCorri"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7dp3o"]
+animation = &"PreCayendoQuieto"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gymyn"]
+animation = &"Quieto"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fd4e3"]
+animation = &"SaltandoCorri"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l6n3p"]
+animation = &"SaltandoQuieto"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gymyn"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h4iuc"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fd4e3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_igrcy"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l6n3p"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fs7ks"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_olqyp"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wpjfl"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bi64h"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ijsl"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7dp3o"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p1odr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qqcod"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0gysh"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vfarp"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y6uwr"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_83xs0"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ypfnu"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wohnl"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_36dho"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yh6i2"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nv4vc"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_11gg7"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qpa8y"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sbwqj"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xuaoq"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8gxox"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fd4e3"]
+states/Acelerando/node = SubResource("AnimationNodeAnimation_bi64h")
+states/Acelerando/position = Vector2(709.87067, 184.52953)
+states/AterrizCorrer/node = SubResource("AnimationNodeAnimation_wpjfl")
+states/AterrizCorrer/position = Vector2(1188.9996, 365.40054)
+states/AterrizCorri/node = SubResource("AnimationNodeAnimation_olqyp")
+states/AterrizCorri/position = Vector2(458.779, -183.989)
+states/AterrizParando/node = SubResource("AnimationNodeAnimation_fs7ks")
+states/AterrizParando/position = Vector2(230.557, -183.322)
+states/AterrizQuieto/node = SubResource("AnimationNodeAnimation_pu2lt")
+states/AterrizQuieto/position = Vector2(951.68567, 366.62454)
+states/CaidaCorri/node = SubResource("AnimationNodeAnimation_qqcod")
+states/CaidaCorri/position = Vector2(289.90152, -353.28162)
+states/CayendoQuieto/node = SubResource("AnimationNodeAnimation_ukyrk")
+states/CayendoQuieto/position = Vector2(1078.4843, 602.3778)
+states/Corriendo/node = SubResource("AnimationNodeAnimation_h4iuc")
+states/Corriendo/position = Vector2(1078.3326, 106.072556)
+states/End/position = Vector2(61.33, 100.604)
+states/FrenandoAcel/node = SubResource("AnimationNodeAnimation_p1odr")
+states/FrenandoAcel/position = Vector2(711.8009, 102.277405)
+states/FrenandoCorri/node = SubResource("AnimationNodeAnimation_2ijsl")
+states/FrenandoCorri/position = Vector2(709.7986, 9.653535)
+states/PreCaidaCorri/node = SubResource("AnimationNodeAnimation_igrcy")
+states/PreCaidaCorri/position = Vector2(710.4116, -354.02142)
+states/PreCayendoQuieto/node = SubResource("AnimationNodeAnimation_7dp3o")
+states/PreCayendoQuieto/position = Vector2(709.87067, 603.2392)
+states/Quieto/node = SubResource("AnimationNodeAnimation_gymyn")
+states/Quieto/position = Vector2(350.667, 99.9259)
+states/SaltandoCorri/node = SubResource("AnimationNodeAnimation_fd4e3")
+states/SaltandoCorri/position = Vector2(1081.6797, -354.59445)
+states/SaltandoQuieto/node = SubResource("AnimationNodeAnimation_l6n3p")
+states/SaltandoQuieto/position = Vector2(343.452, 602.368)
+transitions = ["Start", "Quieto", SubResource("AnimationNodeStateMachineTransition_gymyn"), "Quieto", "PreCayendoQuieto", SubResource("AnimationNodeStateMachineTransition_h4iuc"), "CayendoQuieto", "AterrizQuieto", SubResource("AnimationNodeStateMachineTransition_fd4e3"), "PreCayendoQuieto", "CayendoQuieto", SubResource("AnimationNodeStateMachineTransition_igrcy"), "Quieto", "SaltandoCorri", SubResource("AnimationNodeStateMachineTransition_l6n3p"), "Corriendo", "SaltandoCorri", SubResource("AnimationNodeStateMachineTransition_fs7ks"), "SaltandoCorri", "PreCaidaCorri", SubResource("AnimationNodeStateMachineTransition_olqyp"), "PreCaidaCorri", "CaidaCorri", SubResource("AnimationNodeStateMachineTransition_wpjfl"), "CaidaCorri", "AterrizParando", SubResource("AnimationNodeStateMachineTransition_bi64h"), "AterrizParando", "Quieto", SubResource("AnimationNodeStateMachineTransition_2ijsl"), "AterrizQuieto", "Quieto", SubResource("AnimationNodeStateMachineTransition_7dp3o"), "Quieto", "SaltandoQuieto", SubResource("AnimationNodeStateMachineTransition_p1odr"), "SaltandoQuieto", "PreCayendoQuieto", SubResource("AnimationNodeStateMachineTransition_qqcod"), "PreCayendoQuieto", "Quieto", SubResource("AnimationNodeStateMachineTransition_0gysh"), "CaidaCorri", "AterrizCorri", SubResource("AnimationNodeStateMachineTransition_vfarp"), "AterrizCorri", "Corriendo", SubResource("AnimationNodeStateMachineTransition_y6uwr"), "CayendoQuieto", "AterrizCorrer", SubResource("AnimationNodeStateMachineTransition_83xs0"), "AterrizCorrer", "Corriendo", SubResource("AnimationNodeStateMachineTransition_ypfnu"), "Quieto", "Acelerando", SubResource("AnimationNodeStateMachineTransition_wohnl"), "Corriendo", "FrenandoCorri", SubResource("AnimationNodeStateMachineTransition_36dho"), "FrenandoCorri", "Quieto", SubResource("AnimationNodeStateMachineTransition_yh6i2"), "Acelerando", "FrenandoAcel", SubResource("AnimationNodeStateMachineTransition_nv4vc"), "Acelerando", "SaltandoCorri", SubResource("AnimationNodeStateMachineTransition_11gg7"), "FrenandoAcel", "SaltandoQuieto", SubResource("AnimationNodeStateMachineTransition_qpa8y"), "FrenandoCorri", "SaltandoCorri", SubResource("AnimationNodeStateMachineTransition_sbwqj"), "Acelerando", "Corriendo", SubResource("AnimationNodeStateMachineTransition_xuaoq"), "FrenandoAcel", "Quieto", SubResource("AnimationNodeStateMachineTransition_8gxox")]
+graph_offset = Vector2(-192, -30)
+
+[node name="Player" type="CharacterBody2D" unique_id=503903808 groups=["Player"]]
+editor_description = "La escala del futuro sprite de x214 pixeles, es de 0.832, y su posicion en Y es: 2.0 o 3.7
+"
+z_index = 1
+collision_mask = 12
+floor_max_angle = 1.0472
+platform_floor_layers = 4
+platform_wall_layers = 8
+script = ExtResource("1_lslt6")
+dashing_speed = 1900
+masa = 16
+airFriction = 2400.0
+
+[node name="Warp_Cont" type="Control" parent="." unique_id=1001187549]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = -96.0
+offset_bottom = -96.0
+
+[node name="Label" type="Label" parent="Warp_Cont" unique_id=73410691]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pu2lt")
+text = "Warp: Yes"
+
+[node name="Player_Default_Size" type="Control" parent="." unique_id=1386605578]
+editor_description = "El tamaño del jugador es de 48px x 140 px"
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="Player_Default_Size" unique_id=1392397303]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -70.0
+offset_right = 24.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.561488, 0.559813, 3.85046e-07, 0.419608)
+
+[node name="Sprite_Animations" type="Node2D" parent="." unique_id=145453119]
+unique_name_in_owner = true
+
+[node name="SS_GeneralActions" type="Sprite2D" parent="Sprite_Animations" unique_id=1817466273]
+editor_description = "Scale Size: 0.825
+Local Position in Y: 2"
+texture_filter = 1
+position = Vector2(0, 3.7)
+scale = Vector2(0.825, 0.825)
+texture = ExtResource("3_1iu4k")
+hframes = 10
+vframes = 17
+frame = 80
+
+[node name="SS_MovementActions" type="Sprite2D" parent="Sprite_Animations" unique_id=2106207092]
+visible = false
+position = Vector2(0, 3.7)
+scale = Vector2(0.825, 0.825)
+texture = ExtResource("4_m0x7a")
+hframes = 10
+vframes = 9
+frame = 81
+
+[node name="Damage_Detector" type="Area2D" parent="." unique_id=463052072 groups=["Player"]]
+unique_name_in_owner = true
+collision_mask = 2
+collision_priority = 2.0
+monitorable = false
+
+[node name="ColArea" type="CollisionShape2D" parent="Damage_Detector" unique_id=170695965]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_f1ek2")
+debug_color = Color(1, 0.375037, 0.303057, 0.419608)
+
+[node name="Interact_Detector" type="Area2D" parent="." unique_id=192628432 groups=["Player"]]
+unique_name_in_owner = true
+collision_mask = 16
+collision_priority = 3.0
+monitorable = false
+priority = 1
+
+[node name="ColArea" type="CollisionShape2D" parent="Interact_Detector" unique_id=1969105831]
+shape = SubResource("RectangleShape2D_ukyrk")
+debug_color = Color(0.445193, 0.698048, 1.15514e-06, 0.419608)
+
+[node name="Body_Col" type="CollisionShape2D" parent="." unique_id=1505671056]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_dwoeg")
+
+[node name="Player_Anims" type="AnimationPlayer" parent="." unique_id=1095620066]
+libraries/ = SubResource("AnimationLibrary_qqcod")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=425007761]
+deterministic = false
+tree_root = SubResource("AnimationNodeStateMachine_fd4e3")
+anim_player = NodePath("../Player_Anims")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=642270905]
+position = Vector2(0, -36)
+target_position = Vector2(20, 0)
+collision_mask = 8
+
+[node name="GameCamera" parent="." unique_id=1370725392 instance=ExtResource("5_5v66d")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=785267094]
+visible = false
+enabled = false
+zoom = Vector2(1.1, 1.1)
+limit_enabled = false
+drag_vertical_enabled = true
+drag_left_margin = 0.25
+drag_top_margin = 0.6
+drag_right_margin = 0.25
+drag_bottom_margin = 0.6
+
+[node name="AnimationPathTimer" type="Timer" parent="." unique_id=259015507]
+wait_time = 0.5
+
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=791843400]
+wait_time = 2.0
+one_shot = true
+
+[node name="DashingTimer" type="Timer" parent="." unique_id=831246571]
+wait_time = 0.25
+one_shot = true
+
+[node name="StateMachine" parent="." unique_id=1688418114 node_paths=PackedStringArray("default_state") instance=ExtResource("6_x63xi")]
+default_state = NodePath("PlayerStateIdle")
+
+[node name="PlayerStateIdle" type="Node" parent="StateMachine" unique_id=200899379]
+script = ExtResource("7_i2e8t")
+
+[node name="PlayerStateAccelerating" type="Node" parent="StateMachine" unique_id=667639571]
+script = ExtResource("8_qidb7")
+
+[node name="PlayerStateStoppingAccel" type="Node" parent="StateMachine" unique_id=20802769]
+script = ExtResource("9_70hv0")
+
+[node name="PlayerStateRunning" type="Node" parent="StateMachine" unique_id=313234298]
+script = ExtResource("10_8flut")
+
+[node name="PlayerStateStoppinRunnin" type="Node" parent="StateMachine" unique_id=1083257300]
+script = ExtResource("11_u7x0b")
+
+[node name="PlayerStateJumping" type="Node" parent="StateMachine" unique_id=2069702967]
+script = ExtResource("12_utwlt")
+
+[node name="PlayerStateJumpinRunnin" type="Node" parent="StateMachine" unique_id=1290615297]
+script = ExtResource("13_kih0c")
+
+[node name="PlayerStateFalling" type="Node" parent="StateMachine" unique_id=356164371]
+script = ExtResource("14_lyrkg")
+
+[node name="PlayerStateFallinRunnin" type="Node" parent="StateMachine" unique_id=76800740]
+script = ExtResource("15_c43xd")
+
+[node name="PlayerStateDashing" type="Node" parent="StateMachine" unique_id=297881919]
+script = ExtResource("16_avx33")
+
+[node name="SSSizeRef" type="Sprite2D" parent="." unique_id=288716701]
+visible = false
+texture_filter = 1
+position = Vector2(0, 2)
+scale = Vector2(0.832, 0.832)
+texture = ExtResource("17_rxg2u")
+
+[connection signal="area_entered" from="Damage_Detector" to="." method="_on_damage_area_entered"]
+[connection signal="area_entered" from="Interact_Detector" to="." method="_interact_detector_entered"]
+[connection signal="area_exited" from="Interact_Detector" to="." method="_interact_detector_exited"]
+[connection signal="timeout" from="DashingTimer" to="StateMachine/PlayerStateDashing" method="_on_dashing_timer_timeout"]
